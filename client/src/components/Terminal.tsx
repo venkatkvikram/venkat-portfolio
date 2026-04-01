@@ -284,7 +284,7 @@ const Terminal: React.FC = () => {
       {/* Sidebar - Help Menu */}
       {sidebarOpen && (
         <div className="md:w-64 flex-shrink-0">
-          <div className="bg-slate-900 border border-cyan-500/30 rounded-lg p-4 sticky top-4 max-h-96 overflow-y-auto shadow-lg shadow-cyan-500/10">
+          <div className="bg-slate-900 border border-cyan-500/30 rounded-lg p-4 sticky top-4 max-h-auto overflow-y-auto shadow-lg shadow-cyan-500/10">
             <h2 className="text-cyan-400 font-bold mb-4 flex items-center gap-2">
               <TerminalIcon className="w-4 h-4" />
               Commands
