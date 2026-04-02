@@ -119,6 +119,11 @@ const Terminal: React.FC = () => {
         command: 'about',
         output: generateAboutOutput(),
       },
+      {
+        id: 'default-help',
+        command: 'help',
+        output: <pre className="text-green-400 font-mono text-xs">{commandHelp}</pre>,
+      },
     ]);
   }, []);
 
@@ -340,9 +345,9 @@ const Terminal: React.FC = () => {
       )}
 
       {/* Main Terminal Area */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 flex flex-col">
         {/* Header */}
-        <div className="mb-6 space-y-2">
+        <div className="mb-6 space-y-2 flex-shrink-0">
           <div className="flex items-center gap-3">
             <TerminalIcon className="w-6 h-6 text-cyan-400" />
             <h1 className="text-2xl md:text-3xl font-bold text-cyan-400">
@@ -352,10 +357,10 @@ const Terminal: React.FC = () => {
           <div className="text-green-400 text-sm">Interactive Terminal Portfolio • Click commands on the left or type below</div>
         </div>
 
-        {/* Terminal Output */}
+        {/* Terminal Output - Fixed height with scroll */}
         <div
           ref={terminalRef}
-          className="bg-slate-900 border border-cyan-500/30 rounded-lg p-4 md:p-6 mb-4 h-96 md:h-1/2 overflow-y-auto space-y-4 shadow-lg shadow-cyan-500/10"
+          className="bg-slate-900 border border-cyan-500/30 rounded-lg p-4 md:p-6 mb-4 h-[calc(100vh-16rem)] overflow-y-auto space-y-4 shadow-lg shadow-cyan-500/10 flex-shrink-0"
         >
           {commands.length === 0 ? (
             <div className="text-green-400">Type a command or click on the left...</div>
@@ -372,8 +377,8 @@ const Terminal: React.FC = () => {
           )}
         </div>
 
-        {/* Terminal Input */}
-        <div className="bg-slate-900 border border-cyan-500/30 rounded-lg p-4 md:p-6 shadow-lg shadow-cyan-500/10">
+        {/* Terminal Input - Fixed at bottom */}
+        <div className="bg-slate-900 border border-cyan-500/30 rounded-lg p-4 md:p-6 shadow-lg shadow-cyan-500/10 flex-shrink-0">
           <div className="flex items-center gap-2">
             <span className="text-cyan-400">$</span>
             <input
@@ -389,8 +394,8 @@ const Terminal: React.FC = () => {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-6 text-center text-slate-500 text-xs md:text-sm">
+        {/* Footer - Fixed at bottom */}
+        <div className="mt-6 text-center text-slate-500 text-xs md:text-sm flex-shrink-0">
           <div>Crafted with ❤️ by Venkata Sai Esampalli</div>
           <div className="mt-2 text-cyan-600">Use arrow keys ↑↓ to browse history</div>
         </div>
