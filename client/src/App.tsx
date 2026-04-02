@@ -26,7 +26,6 @@ function Router() {
 
 function App() {
   return (
-    <WouterRouter base="/venkat-portfolio">
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="light"
@@ -38,7 +37,6 @@ function App() {
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
-    </WouterRouter>
   );
 }
 
